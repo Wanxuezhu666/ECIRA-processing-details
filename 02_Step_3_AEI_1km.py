@@ -21,8 +21,8 @@ def resample_tif(input_tif_a, input_tif_b, output_tif):
     resample_dataset = driver.Create(output_tif, b_dataset.RasterXSize, b_dataset.RasterYSize, 1, a_data_type)
     resample_dataset.SetProjection(b_projection)
     resample_dataset.SetGeoTransform(b_geotransform)
-    gdal.ReprojectImage(a_dataset, resample_dataset, a_projection, b_projection, gdal.GRA_Bilinear)#样条插值
-    #gdal.ReprojectImage(a_dataset, resample_dataset, a_projection, b_projection, gdal.GRA_NearestNeighbour)#最邻近插值
+    gdal.ReprojectImage(a_dataset, resample_dataset, a_projection, b_projection, gdal.GRA_Bilinear)
+    #gdal.ReprojectImage(a_dataset, resample_dataset, a_projection, b_projection, gdal.GRA_NearestNeighbour)# An alternative interpolation
     a_dataset = None
     b_dataset = None
     resample_dataset = None
@@ -57,7 +57,7 @@ def shapefile_to_geotiff(shapefile_path, output_raster_path, column_name, resolu
         ((geom, value) for geom, value in zip(gdf.geometry, values)),
         out_shape=raster_array.shape,
         transform=transform,
-        fill=0,  # 背景值
+        fill=0, # value for the background
         dtype=np.float32
     )
     with rasterio.open(
@@ -71,7 +71,7 @@ def shapefile_to_geotiff(shapefile_path, output_raster_path, column_name, resolu
         transform=transform
     ) as dst:
         dst.write(raster_array, 1)
-    print(f"GeoTIFF文件已保存为 {output_raster_path}")
+    print(f"GeoTIFF save as {output_raster_path}")
 
 
 shapefile_path = 'Grid_5_arc_min_AEI2005_mean.shp'
