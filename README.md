@@ -30,7 +30,7 @@ _Input data source:_
 -	3.1 Transfer GMIA 0.01 arc degree raster data (AEI 2005 at 0.01 arc degree) into points shapefile (Done in QGIS)
 -	3.2 Transfer HID 5 arc min raster data (AEI 2010 at 5 arc min) into grid vector shapefile (Done in QGIS)  
 - 3.3	Perform Zonal Statistical calculations to compute the mean of all points within the 5 arc minute grids generated in step 2, and create a new grid shapefile. (Done in QGIS)
-- 3.4 Resample GMIA (AEI 2005) from 0.01 arc degree to 1 km grid (Done in Python: **xxx.py**).
+- 3.4 Resample GMIA (AEI 2005) from 0.01 arc degree to 1 km grid (Done in Python: **_02_Step_3_AEI_1km.py → Section 3.4_**).
 - 3.5 Convert the shapefile generated in step 3.3 into a TIFF file. This will create the GMIA AEI 2005 5 arc min TIFF file (Done in Python:**xxx.py**)
 - 3.6 At the 5-arc minute grid, calculate the correction coefficients between GMIA (AEI 2005) and HID (AEI 2010) to obtain the coefficients at 5 arc min, then resample it to 1km (Done in Python:**xxx.py**).
 - 3.7 At 1km grid level, multiply the GMIA obtained in step 3.4 by the coefficients obtained in step 3.6.
