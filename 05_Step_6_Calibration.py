@@ -4,7 +4,6 @@ import geopandas as gpd
 import numpy as np
 from osgeo import gdal, gdalconst
 
-
 os.chdir(r"E:\01_Reseach_papers\FA_Pre_irrigation_grid_map\Depository") 
 
 # 6.1 NUTS2 level, calculate crop-specific AAI calibration coefficients
@@ -50,9 +49,7 @@ for num in range(11):
 
 # 6.2 Generate 1 km crop-specific AAI calibration coefficients TIF
 
-
 from osgeo import gdal, gdalconst
-
 
 def create_new_geotiff(input_path, output_path, pixel_values_dict):
     input_dataset = gdal.Open(input_path, gdalconst.GA_ReadOnly)
@@ -62,11 +59,11 @@ def create_new_geotiff(input_path, output_path, pixel_values_dict):
     num_rows = input_dataset.RasterYSize
     input_data = input_dataset.ReadAsArray()
     new_data = np.zeros((num_rows, num_cols), dtype=np.float32)
-  # 根据像元值字典给新的像元数据数组赋值
+  # Assign values to the new pixel data array based on the pixel value dictionary
     for row in range(num_rows):
         for col in range(num_cols):
             pixel_value = input_data[row][col]
-            if not np.isnan(pixel_value):  # 检查是否为NaN值
+            if not np.isnan(pixel_value):  # Check whether it is NaN
                 if pixel_value in pixel_values_dict:
                     new_data[row][col] = pixel_values_dict[pixel_value]
             else:
@@ -78,7 +75,7 @@ def create_new_geotiff(input_path, output_path, pixel_values_dict):
     output_dataset = driver.Create(output_path,
                                     num_cols,
                                     num_rows,
-                                    1,  # 只有一个波段
+                                    1,  
                                     gdal.GDT_Float32)
     output_dataset.SetGeoTransform(geotransform)
     output_dataset.SetProjection(projection)
@@ -148,8 +145,6 @@ for num in range(11):
 
 # 6.3 Multiplying AAI calibration coefficients (generated in step 6.2) with crop-AEI (generated in step 5.2).
 
-
-
 def multiply_two_images(input_path1, input_path2, output_path):
     input_dataset1 = gdal.Open(input_path1, gdalconst.GA_ReadOnly)
     input_dataset2 = gdal.Open(input_path2, gdalconst.GA_ReadOnly)
@@ -172,7 +167,6 @@ def multiply_two_images(input_path1, input_path2, output_path):
     input_dataset1 = None
     input_dataset2 = None
     output_dataset = None
-
 
 for num in range(11):
     year = num + 2010
