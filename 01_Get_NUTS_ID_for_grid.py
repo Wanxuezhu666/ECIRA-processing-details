@@ -2,13 +2,6 @@
 """
 This code is used to generate the NUTS code for each grid. 
 The NUTS codes are replaced by numbers, 
-and the specific correspondence between each number and the NUTS2 unit can be found in the xlsx file.
-
-"""
-
-"""
-This code is used to generate the NUTS code for each grid. 
-The NUTS codes are replaced by numbers, 
 and the specific correspondence between each number and the NUTS2 unit can be found in the xlsx file:
 "NUTS_number_list_new.xlsx".
 
