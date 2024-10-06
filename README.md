@@ -1,7 +1,7 @@
 # Crop-specific_Irrigated_Area_Map_EU
 **Contact**: Wanxue Zhu (wanxue.zhu@agr.uni-goettingen.de)  
 _Department of Crop Sciences, University of Göttingen, Von-Siebold-Str. 8, 37075 Göttingen, Germany_    
-**Updated**: 04 October 2024 
+**Updated**: 06 October 2024 
 
 The **European Crop-specific IRrigated Area Dataset (ECIRA)** provides data on the actual irrigated area for specific crops across 28 European countries from 2010 to 2020, with a spatial resolution of 1 km and using the EPSG: 3035 projection. 
 
@@ -15,6 +15,9 @@ _Abbreviations:_
 -	**AAI** (in hectares): Irrigated area, namely area actually received irrigation.
 -	**AEI** (in hectares): Irrigable area, namely area equipped with irrigation infrastructure without considering the actual irrigation is applied or not.
 -	**UAA** (in hectares): Utilized agricultural land.
+
+_Input data source:_
+
 
 ## Step 1: Generating NUTS2-level annual total AAI for 2010-2020
 **Method**: Manual (see the manuscript)
