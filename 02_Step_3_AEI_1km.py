@@ -4,7 +4,6 @@
 import os
 from osgeo import gdal
 
-
 os.chdir(r"E:\01_Reseach_papers\FA_Pre_irrigation_grid_map\Depository\Step_03") 
 
 # 3.4. Resampling GMIA 2005 from 0.01 arc degree to 1km
