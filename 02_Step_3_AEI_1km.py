@@ -161,8 +161,7 @@ multiply_tif('Coefficients_1km.tif',
 	         'AEI_share_2010_1km.tif')
 
 
-
-# 3.8 Revise the maximum AEI as 100 hectare
+# 3.8 Revise the maximum AEI as 100 hectares
 import os
 import rasterio
 
