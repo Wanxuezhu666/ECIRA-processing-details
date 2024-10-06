@@ -80,6 +80,10 @@ Note: OTHER = ROOF + SOYA + TOBA + OIND + FLOW + OFAR + NURS + OCRO in DGPCM
 Then manually check the .xlsx file, to fill no data as zero, and ‘inf’ as zero.
 - 6.2	Generating 1 km gridded AAI calibration coefficients (Done in Python: **xxx.py**)
 We matched above NUTS2 level coefficients (generated in step 6.1) with 1 km grid (each grid contains NUTS2 code), to generate grid level AAI calibration coefficients.
+
+**How to generate crop grids with NUTS2 ID?**    
+Done in Python: _01_Get_NUTS_ID_for_grid.py_
+
 - 6.3	Generating 1 km gridded crop-specific, year-specific AAI (Done in Python: **xxx.py**)
 Multiplying AAI calibration coefficients (generated in step 6.2) with crop-AEI (generated in step 5.2).
 
