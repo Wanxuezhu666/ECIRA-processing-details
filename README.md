@@ -37,10 +37,14 @@ _Input data source:_
 - 3.8 Revised the maximum final AEI cannot be over 100 hectare. (Done in Python:**_02_Step_3_AEI_1km.py → Section 3.8_**)
 
 ## Step 04: Generating annual 1km gridded crop-specific growing area for 2010–2020
- - 4.1	Split the multi-layer raster data from DGPCM into individual single-layer rasters. Layer 0 is UAA, layers 1–28 are expected crop growing share. (Done in Python: **xxx.py**).
- - 4.2	Revise UAA maximum (provided by the ‘weight’ column in DGPCM) as 100 hectares in each 1km pixel. (Done in Python: **xxx.py**)
- - 4.3	Calculate UAA loss caused by revising the maximum UAA to 100 hectares (optional, Done in Python: **xxx.py**).
- - 4.4  Note that we aggregated some crop types as follows,
+ - 4.1	Split the multi-layer raster data from DGPCM into individual single-layer rasters. Layer 0 is UAA, layers 1–28 are expected crop growing share.  
+   (Done in Python: **_03_Step_4_Crop_growing_area.py → Section 4.1_**).
+ - 4.2	Revise UAA maximum (provided by the ‘weight’ column in DGPCM) as 100 hectares in each 1km pixel.  
+   (Done in Python: **_03_Step_4_Crop_growing_area.py → Section 4.2_**).
+ - 4.3	Calculate UAA loss caused by revising the maximum UAA to 100 hectares  
+   (optional, Done in Python: **_03_Step_4_Crop_growing_area.py → Section 4.3_**).
+ - 4.4  Note that we aggregated some crop types as follows,  
+   (Done in Python: **_03_Step_4_Crop_growing_area.py → Section 4.4_**)
 
 | ID |     Eurostat 2010 category     | ECIRA | DGPCM|
 | -- | ------------------------------ | ------|----- |
@@ -69,7 +73,8 @@ _Input data source:_
 
 Note: OTHER = ROOF + SOYA + TOBA + OIND + FLOW + OFAR + NURS + OCRO in DGPCM
 
-4.5  Multiplying UAA generated in Step 03 and crop share in Step 4.4 to get crop-specific growing area for 16 crop types for year 2010-2020 (Done in Python: **xxx.py**). 
+4.5  Multiplying UAA generated in Step 03 and crop share in Step 4.4 to get crop-specific growing area for 16 crop types for year 2010-2020    
+(Done in Python: **_03_Step_4_Crop_growing_area.py → Section 4.5_**)
 
 ## Step 5: Generating crop-specific AEI for 2010–2020
 - 5.1	At 1km gridded level, multiplying AEI generated in Step 03 and crop share in Step 4.4 to get crop-specific growing area for 16 crop types for year 2010-2020 (Done in Python: **xxx.py**, ha * 1000,000).
