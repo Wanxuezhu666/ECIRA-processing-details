@@ -13,7 +13,7 @@ import rasterio
 from rasterio.mask import mask
 
 
-os.chdir(r"E:\01_Reseach_papers\FA_Pre_irrigation_grid_map\Depository") 
+os.chdir(r"E:\01_Reseach_papers\FA_Pre_irrigation_grid_map\Depository") #Change the path
 
 # 5.1  Generate 1km gridded crop-specific AEI
 
@@ -53,8 +53,6 @@ for num in range(11):
 
 # 5.2 Conduct NUTS2 level zonal statistics
 
-
-
 import numpy as np
 import xlwt
 import matplotlib.pyplot as plt
@@ -72,14 +70,14 @@ from shapely.geometry import box
 os.chdir(r"E:\01_Reseach_papers\FA_Pre_irrigation_grid_map\Depository\Step_05") 
 
 
-#---------------使用NUTS2 shapefile对Crop-specific AEI进行分区统计
+#--------Perform zonal statistics on crop-specific AEI using the NUTS2 shapefile
 
 
 def add_field_shapfile(shapefile_path,tif_path,output_path,field_name):
     gdf = gpd.read_file(shapefile_path)
     with rasterio.open(tif_path) as src:
         affine = src.transform
-        array = src.read(1)  # 读取第一个波段的数据
+        array = src.read(1)  # Read band 1
     stats = zonal_stats(gdf.geometry, array, affine=affine, stats='sum', nodata=-9999)
     gdf[field_name] = [stat['sum'] for stat in stats]
     #gdf.to_file(output_path)
@@ -89,15 +87,12 @@ def add_field_shapfile(shapefile_path,tif_path,output_path,field_name):
 def add_field_shapfile_more(gdf,tif_path,field_name):
     with rasterio.open(tif_path) as src:
         affine = src.transform
-        array = src.read(1)  # 读取第一个波段的数据
+        array = src.read(1) 
     stats = zonal_stats(gdf.geometry, array, affine=affine, stats='sum', nodata=-9999)
     gdf[field_name] = [stat['sum'] for stat in stats]
     return(gdf)
 
 
-
-
-#这里用了不同的函数叠加
 for num in range(11):
     year = num+2010
     print(year)
